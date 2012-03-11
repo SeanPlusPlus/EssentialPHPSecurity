@@ -96,7 +96,7 @@
 
   /* Generate Output */
 
-  $html['email']    = htmlentities($clean['email'], ENT_QUOTES, 'UTF-8');
+  $html['email']   = htmlentities($clean['email'], ENT_QUOTES, 'UTF-8');
   $html['comment'] = htmlentities($clean['comment'], ENT_QUOTES, 'UTF-8');
 
   /* Display */
