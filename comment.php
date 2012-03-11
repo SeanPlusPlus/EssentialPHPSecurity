@@ -1,6 +1,5 @@
 <?php
 
-
   /*
   Validate an email address.
   Provide email address (raw input)
@@ -81,11 +80,14 @@
 
   /* Filter Input */
 
-  if ( validEmail($_POST['name']) )  {
-    $clean['name'] = $_POST['name'];
+  if ( validEmail($_POST['email']) )  {
+    $clean['email'] = $_POST['email'];
+  }
+  else {
+    $clean['email'] = "Invalid Email Address";
   }
 
-  if ( preg_match("/<\s*script/", $_POST['comment']) )  {
+  if ( preg_match("/<\s*script/i", $_POST['comment']) )  {
     $clean['comment'] = "Are You Kidding Me?!";
   }
   else {
@@ -94,20 +96,20 @@
 
   /* Generate Output */
 
-  $html['name']    = htmlentities($clean['name'], ENT_QUOTES, 'UTF-8');
+  $html['email']    = htmlentities($clean['email'], ENT_QUOTES, 'UTF-8');
   $html['comment'] = htmlentities($clean['comment'], ENT_QUOTES, 'UTF-8');
 
   /* Display */
 
-  echo "<p><b>name: </b>{$html['name']}</p>";
+  echo "<p><b>email: </b>{$html['email']}</p>";
   echo "<p><b>comment: </b>{$html['comment']}</p>";
 
   /* How Not to Do It */
 
-  //$name = $_POST['name'];
+  //$email = $_POST['email'];
   //$comment = $_POST['comment'];
 
-  //echo  "<p><b>name: </b>$name</p>";
+  //echo  "<p><b>email: </b>$email</p>";
   //echo "<p><b>comment: </b>$comment</p>";
 
 ?>
