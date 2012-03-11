@@ -1,13 +1,20 @@
 <?php
 
+  /* comment.php
+   * author: Sean Stephenson
+   * description: a collection of basic form handling functions
+   */
+
+
   /*
-  Validate an email address.
-  Provide email address (raw input)
-  Returns true if the email address has the email
-  address format and the domain exists.
-  source:
-  http://www.linuxjournal.com/article/9585?page=0,3
-  */
+   * 1st, Validate an email address.
+   * Provide email address (raw input).
+   * Returns true if the email address has the
+   * email address format and the domain exists.
+   *
+   * source:
+   * http://www.linuxjournal.com/article/9585?page=0,3
+   */
 
   function validEmail($email)
   {
@@ -78,19 +85,25 @@
   $clean = array(); // assignment occurs inside if statement
   $html  = array(); // to assign, pass $clean to htmlentities
 
-  /* Filter Input */
+  /* Filter Email From Input */
 
-  if ( validEmail($_POST['email']) )  {
+  if ( validEmail($_POST['email']) )
+  {
     $clean['email'] = $_POST['email'];
   }
-  else {
+  else
+  {
     $clean['email'] = "Invalid Email Address";
   }
 
-  if ( preg_match("/<\s*script/i", $_POST['comment']) )  {
+  /* Filter Comment From Input */
+
+  if ( preg_match("/<\s*script/i", $_POST['comment']) )
+  {
     $clean['comment'] = "Are You Kidding Me?!";
   }
-  else {
+  else
+  {
     $clean['comment'] = $_POST['comment'];
   }
 
