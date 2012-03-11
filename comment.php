@@ -6,6 +6,8 @@
   Provide email address (raw input)
   Returns true if the email address has the email
   address format and the domain exists.
+  source:
+  http://www.linuxjournal.com/article/9585?page=0,3
   */
 
   function validEmail($email)
