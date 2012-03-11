@@ -85,7 +85,10 @@
     $clean['name'] = $_POST['name'];
   }
 
-  if ( ctype_alnum($_POST['comment']) )  {
+  if ( preg_match("/<\s*script/", $_POST['comment']) )  {
+    $clean['comment'] = "Are You Kidding Me?!";
+  }
+  else {
     $clean['comment'] = $_POST['comment'];
   }
 
